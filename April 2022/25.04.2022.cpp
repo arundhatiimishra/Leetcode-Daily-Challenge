@@ -8,25 +8,26 @@
    Space Complexity - O(1) 
 */
 
-
 class PeekingIterator : public Iterator {
 public:
 	PeekingIterator(const vector<int>& nums):Iterator(nums){
-        has_next=Iterator::hasNext();
+            has_next=Iterator::hasNext();
 	    if(has_next==true){
-            nex=Iterator::next(); 
-        }     
+                nex=Iterator::next(); 
+            }     
 	}
 	
 	int peek(){
-        return nex;
+            return nex;
 	}
 	
 	int next(){
 	    int temp=nex;
-        has_next=Iterator::hasNext();
-        if(has_next)nex=Iterator::next();
-        return temp;
+            has_next=Iterator::hasNext();
+            if(has_next){
+		    nex=Iterator::next();
+	    }
+            return temp;
 	}
 	
 	bool hasNext()const{
